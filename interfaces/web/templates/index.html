@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS v2.0 - Web Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>🤖 JARVIS v2.0</h1>
+                <p class="tagline">Your Personal AI Assistant</p>
+            </div>
+            <div class="status">
+                <span class="status-indicator" id="status"></span>
+                <span id="status-text">Connecting...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Chat Container -->
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="welcome-message">
+                        <h2>Welcome to JARVIS!</h2>
+                        <p>I'm your personal AI assistant. How can I help you today?</p>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-area">
+                    <input 
+                        type="text" 
+                        id="message-input" 
+                        placeholder="Type your message here..." 
+                        autocomplete="off"
+                    >
+                    <button id="send-button" class="btn-primary">Send</button>
+                    <button id="clear-button" class="btn-secondary">Clear</button>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Quick Actions</h3>
+                    <button class="quick-action" data-action="search">🔍 Web Search</button>
+                    <button class="quick-action" data-action="weather">🌤️ Weather</button>
+                    <button class="quick-action" data-action="news">📰 News</button>
+                    <button class="quick-action" data-action="calculate">🔢 Calculate</button>
+                    <button class="quick-action" data-action="remember">💾 Remember</button>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Statistics</h3>
+                    <div id="stats">
+                        <p>Loading...</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>About</h3>
+                    <p class="about-text">
+                        JARVIS v2.0 is an advanced AI assistant with voice, memory, 
+                        scheduling, and 200+ integrations.
+                    </p>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 JARVIS v2.0 | Built with ❤️ by Aptik Pandey</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
